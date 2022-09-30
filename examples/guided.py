@@ -43,7 +43,7 @@ def ask_user_questions():
 	global_menu.enable('keyboard-layout')
 
 	# Set which region to download packages from during the installation
-	global_menu.enable('mirror-region')
+	# global_menu.enable('mirror-region')
 
 	global_menu.enable('sys-language')
 	global_menu.enable('sys-encoding')
