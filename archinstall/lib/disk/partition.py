@@ -204,7 +204,14 @@ class Partition:
 		output = SysCommand(f"sfdisk --json {self.block_device.path}").decode('UTF-8')
 
 		if output:
-			sfdisk_info = json.loads(output)
+			try:
+				sfdisk_info = json.loads(output)
+			except:
+				lines = output.splitlines()
+				for i in range(len(lines)):
+					if lines[i] == '{':
+						break
+				sfdisk_info = json.loads("\n".join(output.splitlines()[i:]))
 			partitions = sfdisk_info.get('partitiontable', {}).get('partitions', [])
 			node = list(filter(lambda x: x['node'] == self._path, partitions))
 

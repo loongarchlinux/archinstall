@@ -947,10 +947,10 @@ class Installer:
 		if has_uefi():
 			self.pacstrap('efibootmgr') # TODO: Do we need? Yes, but remove from minimal_installation() instead?
 			try:
-				SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peek_output=True)
+				SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=loongarch64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peek_output=True)
 			except SysCallError:
 				try:
-					SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peek_output=True)
+					SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=loongarch64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peek_output=True)
 				except SysCallError as error:
 					raise DiskError(f"Could not install GRUB to {self.target}/boot: {error}")
 		else:
