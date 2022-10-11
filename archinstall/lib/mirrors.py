@@ -64,9 +64,10 @@ def filter_mirrors_by_region(regions :str,
 	:param regions: A series of country codes separated by `,`. For instance `SE,US` for sweden and United States.
 	:type regions: str
 	"""
-	region_list = [f'country={region}' for region in regions.split(',')]
-	response = urllib.request.urlopen(urllib.request.Request(f"https://archlinux.org/mirrorlist/?{'&'.join(region_list)}&protocol=https&protocol=http&ip_version=4&ip_version=6&use_mirror_status=on'", headers={'User-Agent': 'ArchInstall'}))
-	new_list = response.read().replace(b"#Server", b"Server")
+	#region_list = [f'country={region}' for region in regions.split(',')]
+	#response = urllib.request.urlopen(urllib.request.Request(f"https://archlinux.org/mirrorlist/?{'&'.join(region_list)}&protocol=https&protocol=http&ip_version=4&ip_version=6&use_mirror_status=on'", headers={'User-Agent': 'ArchInstall'}))
+	#new_list = response.read().replace(b"#Server", b"Server")
+	new_list = open(destination).read()
 
 	if sort_order:
 		new_list = sort_mirrorlist(new_list, sort_order=sort_order)
@@ -146,6 +147,10 @@ def re_rank_mirrors(
 def list_mirrors(sort_order :List[str] = ["https", "http"]) -> Dict[str, Any]:
 	url = "https://archlinux.org/mirrorlist/?protocol=https&protocol=http&ip_version=4&ip_version=6&use_mirror_status=on"
 	regions = {}
+	regions = {
+            "China": "https://mirrors.wsyu.edu.cn/loongarch/2022.03/$repo/os/$arch"
+            }
+    return regions
 
 	try:
 		response = urllib.request.urlopen(url)
