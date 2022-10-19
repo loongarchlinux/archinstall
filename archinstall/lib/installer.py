@@ -462,6 +462,15 @@ class Installer:
 			modifier = f"@{modifier}"
 		# - End patch
 
+		if locale == "zh_CN":
+			self.pacstrap(['fcitx5', 'fcitx5-chinese-addons', 'fcitx5-configtool', 'fcitx5-gtk', 'fcitx5-qt'])
+			with open(f'{self.target}/etc/X11/xinit/xinitrc.d/50-input.sh', 'w') as fh:
+				fh.write(f'export XIM=fcitx\n')
+				fh.write(f'export GTK_IM_MODULE=fcitx\n')
+				fh.write(f'export QT_IM_MODULE=fcitx\n')
+				fh.write(f'export XMODIFIERS="@im=fcitx"\n')
+			os.chmod(f'{self.target}/etc/X11/xinit/xinitrc.d/50-input.sh', 0o755)
+
 		with open(f'{self.target}/etc/locale.gen', 'a') as fh:
 			fh.write(f'{locale}.{encoding}{modifier} {encoding}\n')
 		with open(f'{self.target}/etc/locale.conf', 'w') as fh:
@@ -927,10 +936,10 @@ class Installer:
 		if has_uefi():
 			self.pacstrap('efibootmgr') # TODO: Do we need? Yes, but remove from minimal_installation() instead?
 			try:
-				SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peak_output=True)
+				SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=loongarch64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peak_output=True)
 			except SysCallError:
 				try:
-					SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peak_output=True)
+					SysCommand(f'/usr/bin/arch-chroot {self.target} grub-install --debug --target=loongarch64-efi --efi-directory=/boot --bootloader-id=GRUB --removable', peak_output=True)
 				except SysCallError as error:
 					raise DiskError(f"Could not install GRUB to {self.target}/boot: {error}")
 		else:
