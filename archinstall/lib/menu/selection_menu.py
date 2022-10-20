@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import sys
 import pathlib
+import unicodedata
 from typing import Callable, Any, List, Iterator, Tuple, Optional, Dict, TYPE_CHECKING
 
 from .menu import Menu, MenuSelectionType
@@ -15,6 +16,13 @@ from ..user_interaction.general_conf import select_archinstall_language
 
 if TYPE_CHECKING:
 	_: Any
+
+def count_cjk_chars(string):
+	return sum(unicodedata.east_asian_width(c) in 'FW' for c in string)
+
+def cjkljust(string, width, fillbyte=' '):
+	"""  Align left  >>> cjkljust('hello', 10, '*') 'hello*****' >>> cjkljust(' Hello world', 10, '*') ' Hello world*' >>> cjkljust(' Hello world', 1, '*') ' Hello world' """
+	return string.ljust(width - count_cjk_chars(string), fillbyte)
 
 
 class Selector:
@@ -130,7 +138,7 @@ class Selector:
 
 		if current:
 			padding += 5
-			description = str(self._description).ljust(padding, ' ')
+			description = cjkljust(str(self._description), padding, ' ')
 			current = str(_('set: {}').format(current))
 		else:
 			description = self._description
