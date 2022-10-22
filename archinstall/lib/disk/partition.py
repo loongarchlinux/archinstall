@@ -195,7 +195,7 @@ class Partition:
 		raise DiskError(f'Failed to read disk "{self.device_path}" with lsblk')
 
 	def _call_sfdisk(self) -> Dict[str, Any]:
-		output = SysCommand(f"sfdisk --json {self.block_device.path}").decode('UTF-8')
+		output = SysCommand(f"sfdisk -q --json {self.block_device.path}").decode('UTF-8')
 
 		if output:
 			sfdisk_info = json.loads(output)
