@@ -462,16 +462,6 @@ class Installer:
 			modifier = f"@{modifier}"
 		# - End patch
 
-		if locale == "zh_CN":
-			self.pacstrap(['fcitx5', 'fcitx5-chinese-addons', 'fcitx5-configtool', 'fcitx5-gtk', 'fcitx5-qt'])
-			with open(f'{self.target}/etc/X11/xinit/xinitrc.d/50-input.sh', 'w') as fh:
-				fh.write(f'export XIM=fcitx\n')
-				fh.write(f'export GTK_IM_MODULE=fcitx\n')
-				fh.write(f'export QT_IM_MODULE=fcitx\n')
-				fh.write(f'export XMODIFIERS="@im=fcitx"\n')
-			os.chmod(f'{self.target}/etc/X11/xinit/xinitrc.d/50-input.sh', 0o755)
-			SysCommand(f'/usr/bin/arch-chroot {self.target} sed -i -e \'s/^#zh_CN.UTF-8/zh_CN.UTF-8/\' -e \'s/^#en_US.UTF-8/en_US.UTF-8/\' /etc/locale.gen')
-
 		with open(f'{self.target}/etc/locale.gen', 'a') as fh:
 			fh.write(f'{locale}.{encoding}{modifier} {encoding}\n')
 		with open(f'{self.target}/etc/locale.conf', 'w') as fh:
