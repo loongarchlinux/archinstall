@@ -13,10 +13,6 @@ __packages__ = [
 	'xorg-server',
 	'xorg-xinit',
 	'nvidia-dkms',
-	'wqy-bitmapfont',
-	'wqy-microhei',
-	'wqy-microhei-lite',
-	'wqy-zenhei',
 	*__hwd__packages__,
 ]
 
