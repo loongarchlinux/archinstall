@@ -181,8 +181,8 @@ def perform_installation(mountpoint):
 				time.sleep(1)
 
 		# Set mirrors used by pacstrap (outside of installation)
-		if archinstall.arguments.get('mirror-region', None):
-			archinstall.use_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors for the live medium
+#		if archinstall.arguments.get('mirror-region', None):
+#			archinstall.use_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors for the live medium
 
 		# Retrieve list of additional repositories and set boolean values appropriately
 		if archinstall.arguments.get('additional-repositories', None) is not None:
@@ -195,23 +195,24 @@ def perform_installation(mountpoint):
 		if installation.minimal_installation(
 				testing=enable_testing, multilib=enable_multilib, hostname=archinstall.arguments['hostname'],
 				locales=[f"{archinstall.arguments['sys-language']} {archinstall.arguments['sys-encoding'].upper()}"]):
+
 			# Add Chinese input method and fonts
 			if archinstall.arguments.get("sys-language").startswith("zh_CN"):
 				archinstall.storage['installation_session'].add_additional_packages(['fcitx5', 'fcitx5-chinese-addons', 'fcitx5-configtool', 'fcitx5-gtk', 'fcitx5-qt'])
 				archinstall.storage['installation_session'].add_additional_packages(['wqy-bitmapfont', 'wqy-microhei', 'wqy-microhei-lite', 'wqy-zenhei'])
-				with open(f"{archinstall.storage['installation_session'].target}/etc/X11/xinit/xinitrc.d/50-input.sh", 'w') as fh:
-					fh.write(f'export XIM=fcitx\n')
-					fh.write(f'export GTK_IM_MODULE=fcitx\n')
-					fh.write(f'export QT_IM_MODULE=fcitx\n')
-					fh.write(f'export XMODIFIERS="@im=fcitx"\n')
+				with open(f"{archinstall.storage['installation_session'].target}/etc/X11/xinit/xinitrc.d/50-input.sh", 'w') as finput:
+					finput.write(f'export XIM=fcitx\n')
+					finput.write(f'export GTK_IM_MODULE=fcitx\n')
+					finput.write(f'export QT_IM_MODULE=fcitx\n')
+					finput.write(f'export XMODIFIERS="@im=fcitx"\n')
 				archinstall.storage['installation_session'].arch_chroot('chmod +x /etc/X11/xinit/xinitrc.d/50-input.sh')
 				archinstall.storage['installation_session'].arch_chroot('sed -i -e \'s/^#zh_CN.UTF-8/zh_CN.UTF-8/\' -e \'s/^#en_US.UTF-8/en_US.UTF-8/\' /etc/locale.gen')
 				archinstall.storage['installation_session'].arch_chroot('locale-gen')
 
 			installation.set_hostname(archinstall.arguments['hostname'])
-			if archinstall.arguments.get('mirror-region') is not None:
-				if archinstall.arguments.get("mirrors", None) is not None:
-					installation.set_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors in the installation medium
+#			if archinstall.arguments.get('mirror-region') is not None:
+#				if archinstall.arguments.get("mirrors", None) is not None:
+#					installation.set_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors in the installation medium
 			if archinstall.arguments.get('swap'):
 				installation.setup_swap('zram')
 			if archinstall.arguments.get("bootloader") == "grub-install" and archinstall.has_uefi():
