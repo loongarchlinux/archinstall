@@ -149,7 +149,7 @@ def re_rank_mirrors(
 def list_mirrors(sort_order :List[str] = ["https", "http"]) -> Dict[str, Any]:
 	regions = {}
 	regions = {
-            "China": "https://mirrors.wsyu.edu.cn/loongarch/2022.03/$repo/os/$arch"
+            "China": "https://mirrors.wsyu.edu.cn/loongarch/2022.09/$repo/os/$arch"
             }
 	return regions
 
