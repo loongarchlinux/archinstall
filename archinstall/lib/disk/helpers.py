@@ -271,8 +271,6 @@ def all_blockdevices(
 			elif path_info.get('PARTUUID') or path_info.get('PART_ENTRY_NUMBER'):
 				if partitions:
 					instances[path] = Partition(path, block_device=BlockDevice(get_parent_of_partition(pathlib.Path(path))))
-			elif path.startswith('/dev/loop'):
-				continue
 			elif path_info.get('PTTYPE', False) is not False or path_info.get('TYPE') == 'loop':
 				instances[path] = BlockDevice(path, path_info)
 			elif path_info.get('TYPE') in ('squashfs', 'erofs'):
