@@ -216,7 +216,6 @@ def perform_installation(mountpoint):
 				archinstall.storage['installation_session'].arch_chroot('sed -i -e \'s/^#zh_CN.UTF-8/zh_CN.UTF-8/\' -e \'s/^#en_US.UTF-8/en_US.UTF-8/\' /etc/locale.gen')
 				archinstall.storage['installation_session'].arch_chroot('locale-gen')
 
-			installation.set_hostname(archinstall.arguments['hostname'])
 			if archinstall.arguments.get('swap'):
 				installation.setup_swap('zram')
 			if archinstall.arguments.get("bootloader") == "grub-install" and archinstall.has_uefi():
