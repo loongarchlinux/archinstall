@@ -51,7 +51,8 @@ class GlobalMenu(AbstractMenu):
 				_('Archinstall language'),
 				lambda x: self._select_archinstall_language(x),
 				display_func=lambda x: x.display_name,
-				default=self.translation_handler.get_language_by_abbr('en'))
+				default=self.translation_handler.get_language_by_abbr('zh-CN'))
+		self.translation_handler.activate(self.translation_handler.get_language_by_abbr('zh-CN'))
 		self._menu_options['keyboard-layout'] = \
 			Selector(
 				_('Keyboard layout'),
