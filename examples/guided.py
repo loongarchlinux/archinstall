@@ -43,7 +43,7 @@ def ask_user_questions():
 	global_menu.enable('keyboard-layout')
 
 	# Set which region to download packages from during the installation
-	# global_menu.enable('mirror-region')
+	global_menu.enable('mirror-region')
 
 	global_menu.enable('sys-language')
 	global_menu.enable('sys-encoding')
@@ -185,8 +185,8 @@ def perform_installation(mountpoint):
 			time.sleep(1)
 
 		# Set mirrors used by pacstrap (outside of installation)
-#		if archinstall.arguments.get('mirror-region', None):
-#			archinstall.use_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors for the live medium
+		if archinstall.arguments.get('mirror-region', None):
+			archinstall.use_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors for the live medium
 
 		# Retrieve list of additional repositories and set boolean values appropriately
 		if archinstall.arguments.get('additional-repositories', None) is not None:
@@ -199,6 +199,9 @@ def perform_installation(mountpoint):
 		if installation.minimal_installation(
 				testing=enable_testing, multilib=enable_multilib, hostname=archinstall.arguments['hostname'],
 				locales=[f"{archinstall.arguments['sys-language']} {archinstall.arguments['sys-encoding'].upper()}"]):
+			if archinstall.arguments.get('mirror-region') is not None:
+				if archinstall.arguments.get("mirrors", None) is not None:
+					installation.set_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors in the installation medium
 
 			# Add Chinese input method and fonts
 			if archinstall.arguments.get("sys-language").startswith("zh_CN"):
@@ -214,9 +217,6 @@ def perform_installation(mountpoint):
 				archinstall.storage['installation_session'].arch_chroot('locale-gen')
 
 			installation.set_hostname(archinstall.arguments['hostname'])
-#			if archinstall.arguments.get('mirror-region') is not None:
-#				if archinstall.arguments.get("mirrors", None) is not None:
-#					installation.set_mirrors(archinstall.arguments['mirror-region'])  # Set the mirrors in the installation medium
 			if archinstall.arguments.get('swap'):
 				installation.setup_swap('zram')
 			if archinstall.arguments.get("bootloader") == "grub-install" and archinstall.has_uefi():
