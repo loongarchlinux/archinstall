@@ -1180,6 +1180,27 @@ msgstr ""
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "Użyj programu NetworkManager (niezbędne do graficznej konfiguracji Internetu w środowiskach GNOME i KDE)"
 
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "Ręczna konfiguracja"
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "Wprowadź sektor początkowy (procent lub numer bloku, domyślnie: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "Wprowadź sektor początkowy (procent lub numer bloku, domyślnie: {}): "
+
 #~ msgid "When picking a directory to save configuration files to, by default we will ignore the following folders: "
 #~ msgstr "Podczas wybierania katalogu do zapisywania plików konfiguracyjnych, domyślnie ignorowane są następujące foldery: "
 

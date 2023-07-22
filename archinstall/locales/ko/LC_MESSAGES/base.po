@@ -1183,3 +1183,24 @@ msgstr ""
 #, fuzzy
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "NetworkManager 사용 (GNOME 이나 KDE 에서 그래픽으로 인터넷을 구성하는 데 필요)"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "수동 구성"
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "시작 섹터를 입력하세요 (백분율 또는 블록 번호, 기본값: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "시작 섹터를 입력하세요 (백분율 또는 블록 번호, 기본값: {}): "

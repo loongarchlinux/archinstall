@@ -1136,3 +1136,25 @@ msgstr "区域设置"
 
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "使用 NetworkManager（在 GNOME 和 KDE 中以图形方式配置互联网所必需）"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "手动配置"
+
+#, fuzzy
+msgid "Total: {} / {}"
+msgstr "总长度：{}"
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "输入起始扇区（百分比或块号，默认：{}）： "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "输入起始扇区（百分比或块号，默认：{}）： "

@@ -1176,3 +1176,24 @@ msgstr ""
 #, fuzzy
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "Použít NetworkManager (potřebné pro grafickou konfiguraci v GNOME a KDE)"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "Ruční konfigurace"
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "Zadejte počáteční sektor (procenta nebo číslo bloku, výchozí: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "Zadejte počáteční sektor (procenta nebo číslo bloku, výchozí: {}): "

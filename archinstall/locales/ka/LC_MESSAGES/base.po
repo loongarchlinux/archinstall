@@ -1181,3 +1181,24 @@ msgstr ""
 #, fuzzy
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "NetworkManager-ის გამოყენება (აუცილებელია ინტერნეტის GNOME/KDE-დან მოსარგებად)"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "ხელით მორგება"
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "შეიყვანეთ საწყისი სექტორი (პროცენტებში ან ბლოკის ნომერი. ნაგულისხმები: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "შეიყვანეთ საწყისი სექტორი (პროცენტებში ან ბლოკის ნომერი. ნაგულისხმები: {}): "

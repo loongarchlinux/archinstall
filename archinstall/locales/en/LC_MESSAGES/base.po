@@ -1078,3 +1078,22 @@ msgstr ""
 
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr ""
+
+#, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr ""
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+msgid "Enter start (default: sector {}): "
+msgstr ""
+
+msgid "Enter end (default: {}): "
+msgstr ""

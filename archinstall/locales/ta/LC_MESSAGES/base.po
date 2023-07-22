@@ -1139,3 +1139,25 @@ msgstr "மொழி குறியீடுகள்"
 
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "NetworkManager ஐப் பயன்படுத்தவும் (GNOME மற்றும் KDE இல் இணையத்தை வரைகலை முறையில் கட்டமைக்க அவசியம்)"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "கைமுறை கட்டமைப்பு"
+
+#, fuzzy
+msgid "Total: {} / {}"
+msgstr "முழு நீளம்: {}"
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "தொடக்கப் பிரிவை உள்ளிடவும் (இயல்புநிலை: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "தொடக்கப் பிரிவை உள்ளிடவும் (இயல்புநிலை: {}): "

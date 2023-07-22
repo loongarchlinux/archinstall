@@ -3,7 +3,6 @@
 #  Rafael Fontenelle <rafaelff@gnome.org>
 #  Jefferson Michael <github.com/jeffersonjpr>
 #  Diogo Silva <github.com/Diogo-ss>
-
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -1191,6 +1190,28 @@ msgstr "Localidades"
 #, fuzzy
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "Usar NetworkManager (necessário para configurar internet graficamente no GNOME e KDE)"
+
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "Configuração manual"
+
+#, fuzzy
+msgid "Total: {} / {}"
+msgstr "Tamanho total: {}"
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "Digite o setor de início (porcentagem ou número do bloco, padrão: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "Digite o setor de início (porcentagem ou número do bloco, padrão: {}): "
 
 #~ msgid "When picking a directory to save configuration files to, by default we will ignore the following folders: "
 #~ msgstr "Ao selecionar um diretório para salvar arquivos de configuração, por padrão nós ignoramos as seguintes pastas: "

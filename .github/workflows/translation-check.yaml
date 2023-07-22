@@ -9,14 +9,18 @@ name: translation file checks
 jobs:
     translation-check:
         runs-on: ubuntu-latest
-        container:
-            image: archlinux:latest
         steps:
             - uses: actions/checkout@v3
-            - run: pacman --noconfirm -Syu python
-            - run: cd archinstall/locales
-            - run: pwd
-            - run: ls -l
-            - run: bash locales_generator.sh
-            - run: git diff --name-only
-            - run: ls
+            - uses: awalsh128/cache-apt-pkgs-action@latest
+              with:
+                  packages: gettext
+                  version: 1.0
+
+            - name: show translation files
+              run: |
+                  cd archinstall/locales
+                  pwd
+                  ls -l
+                  bash locales_generator.sh
+                  git diff --name-only
+                  ls

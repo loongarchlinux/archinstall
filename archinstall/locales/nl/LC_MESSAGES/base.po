@@ -1207,6 +1207,27 @@ msgstr ""
 msgid "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
 msgstr "NetworkManager gebruiken (benodigd om internetinstellingen grafisch in te stellen in GNOME en KDE)"
 
+#, fuzzy, python-brace-format
+msgid "Invalid configuration: {error}"
+msgstr "Configuratie vastleggen"
+
+msgid "Total: {} / {}"
+msgstr ""
+
+msgid "All entered values can be suffixed with a unit: B, KB, KiB, MB, MiB..."
+msgstr ""
+
+msgid "If no unit is provided, the value is interpreted as sectors"
+msgstr ""
+
+#, fuzzy
+msgid "Enter start (default: sector {}): "
+msgstr "Voer de beginsector in (percentage of bloknummer - standaard: {}): "
+
+#, fuzzy
+msgid "Enter end (default: {}): "
+msgstr "Voer de beginsector in (percentage of bloknummer - standaard: {}): "
+
 #~ msgid "Add :"
 #~ msgstr "Toevoegen:"
 
